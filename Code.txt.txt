@@ -115,3 +115,29 @@ Else
 End If
 
 End Sub
+
+Sub sendcertificateMail()
+
+Dim OutLookApp As Object
+Dim OutLookMailItem As Object
+Dim myAttachments As Object
+Dim Emailaddress  As Range
+Dim Status As Boolean
+
+
+Set OutLookApp = CreateObject("Outlook.application")
+Set OutLookMailItem = OutLookApp.CreateItem(0)
+Set myAttachments = OutLookMailItem.Attachments
+
+With OutLookMailItem
+.To = ""
+.CC = "Vertical.manager@.com"
+.Subject = "Certificate" & "strPDF_FIleName, strResult"
+.Body = "Dear Name " & "We are pleased to announce that you have CLEARED the SPRINT quiz held on Date of Assessment."
+'.myAttachments.""
+'.Save
+.Display
+End With
+
+Set OutLookMailItem = Nothing
+     OutLookApp = Nothing
